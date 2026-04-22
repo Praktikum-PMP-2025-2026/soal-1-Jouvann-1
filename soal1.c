@@ -10,10 +10,10 @@
 #include <string.h>
 #include <stdlib.h>
 
-void hitungData(double data[], int jumlah, double *sum, double *avg, double *max, double *idx){
+void hitungData(int data[], int jumlah, int *sum, float *avg, int *max, int *idx){
     int i = 0;
     *sum = 0;
-    *max = data[0];
+    *max = (int)data[0];
     *idx = 0;
 
     while (i < jumlah){
@@ -33,15 +33,16 @@ void hitungData(double data[], int jumlah, double *sum, double *avg, double *max
 
     *avg = *sum / jumlah;
 
-    printf("SUM %.2f\n", *sum);
+    printf("SUM %d\n", *sum);
     printf("AVG %.2f\n", *avg);
-    printf("MAX %.2f\n", *max);
-    printf("IDX %.2f", *idx);
+    printf("MAX %d\n", *max);
+    printf("IDX %d", *idx);
 }
 
 int main(){
-    double data[100];
-    double sum, avg, max, idx;
+    int data[100];
+    float avg;
+    int sum, max, idx;
     int jumlah;
     int counter = 0;
     char input[100];
@@ -49,7 +50,7 @@ int main(){
 
     //scanf("%[^\n]", &input);
     fgets(input, 100, stdin);
-    printf("%s\n", input);
+    // printf("%s\n", input);
 
     token = strtok(input, " ");
 
@@ -59,7 +60,7 @@ int main(){
             counter++;
         }
         else {
-            data[counter-1] = atof(token);
+            data[counter-1] = atoi(token);
             counter++;
         }
         token = strtok(NULL, " ");
