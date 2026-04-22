@@ -31,7 +31,7 @@ void hitungData(int data[], int jumlah, int *sum, float *avg, int *max, int *idx
         }
     }
 
-    *avg = *sum / jumlah;
+    *avg = (float)*sum / (float)jumlah;
 
     printf("SUM %d\n", *sum);
     printf("AVG %.2f\n", *avg);
